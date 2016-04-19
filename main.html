@@ -67,7 +67,7 @@ document.title = apptitle + " | SnapBack Apps";
 </script>
 <script type="text/javascript">
 	// Temporary Solution to Setting the Initial Permissions
-	var ManifestURL_Local = "%ALLUSERSPROFILE%\\cdp\\snapback\\apps\\apptemplate\\apptemplate.xml";
+	var ManifestURL_Local = "%ALLUSERSPROFILE%\\cdp\\snapback\\apps\\updatefirefox\\updatefirefox.xml";
 	// Check to see if User is admin 
 	
 	// globals
@@ -108,6 +108,11 @@ document.title = apptitle + " | SnapBack Apps";
 				// comment out for development and load your initial perms via a .reg file
 				// comment out if you have no buttons
 				runService(ManifestURL_Local,"","perms");
+				
+				//Setup the apps defaults
+				runService("%ALLUSERSPROFILE%\\cdp\\snapback\\apps\\updatefirefox\\updatefirefox.xml","","regdefaults");
+				//Setup the latest version keys
+				runService("%ALLUSERSPROFILE%\\cdp\\snapback\\apps\\updatefirefox\\updatefirefox.xml","","LatestVersion.js");
 			}
 			else
 			{
